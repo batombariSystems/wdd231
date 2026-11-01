@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="My WDD 231 Web Frontend Development course home page.">
+    <meta name="author" content="Batombari Nyienakuna">
+
+    <title>WDD 231 | Course Home Page</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/large.css">
+
+    <!-- JavaScript Files -->
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="brand">
+            <img src="images/site-logo.svg" alt="Site logo">
+            <span>Batombari Nyienakuna</span>
+        </div>
+
+        <button id="menuToggle" aria-label="Open navigation menu"
+            aria-expanded="false" aria-controls="primaryNav">
+            ☰
+        </button>
+
+        <nav id="primaryNav">
+            <a href="index.html" class="active" aria-current="page">Home</a>
+            <a href="chamber/index.html">Chamber Project</a>
+            <a href="final/index.html">Final Project</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <h1>Home</h1>
+
+        <div class="content-grid">
+
+            <section class="about">
+                <h2>About Me</h2>
+
+                <p>
+                    My name is Batombari Nyienakuna. I am a High school
+                    Mathematics Teacher and a Software Development Student
+                    at Brigham Young University-Idaho. I hold a Bachelor's
+                    Degree in Electrical and Electronics Engineering from
+                    the University of Port Harcourt, Rivers State and a Postgraduate
+                    Diploma in Education (PGDE) Nigeria. I am originally from
+                    Rivers State, Nigeria, but currently based in Abuja.
+                    I have a passion for mathematics, technology,
+                    programming, and web development. I enjoy learning
+                    new skills and creating websites that solve problems
+                    and make information easy to access.
+                </p>
+            </section>
+
+            <section class="student">
+                <h2>Student Photo</h2>
+
+                <img src="images/battawa.jpg"
+                     alt="Portrait of Batombari Nyienakuna"
+                     width="400"
+                     height="400">
+            </section>
+
+        </div>
+
+        <section class="courses">
+
+            <h2>Web Certificate Courses</h2>
+
+            <div class="course-buttons">
+                <button class="filter-button selected" data-filter="ALL"
+                    aria-pressed="true">All</button>
+
+                <button class="filter-button" data-filter="CSE"
+                    aria-pressed="false">CSE</button>
+
+                <button class="filter-button" data-filter="WDD"
+                    aria-pressed="false">WDD</button>
+            </div>
+
+            <div id="courseList"></div>
+
+            <p class="credit-total">
+                The total credits for the courses listed above is
+                <strong id="creditTotal">0</strong>.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="social-links">
+
+            <a href="https://www.linkedin.com/"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="LinkedIn">in</a>
+
+            <a href="https://github.com/"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="GitHub">GitHub</a>
+
+            <a href="https://x.com/"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="X">𝕏</a>
+
+        </div>
+
+        <p>
+            © <span id="currentyear"></span>
+            Batombari Nyienakuna • Abuja, Nigeria
+        </p>
+
+        <p>
+            Last Modification:
+            <span id="lastModified"></span>
+        </p>
+
+    </footer>
+
+</body>
+</html>
