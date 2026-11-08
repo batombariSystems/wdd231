@@ -4,26 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Abuja Business Chamber | Business Directory</title>
-
-    <meta name="description" content="Explore the Abuja Business Chamber directory and discover businesses, services, and opportunities in Abuja, Nigeria.">
+    <meta name="description" content="Explore the Abuja Business Chamber directory. Discover local businesses, services, networking opportunities and business resources in Abuja, Nigeria.">
 
     <meta name="author" content="Batombari Nyienakuna">
 
-    <!-- Open Graph Metadata -->
-    <meta property="og:title" content="Abuja Business Chamber Directory">
-    <meta property="og:description" content="Discover businesses and services in Abuja, Nigeria.">
-    <meta property="og:image" content="https://batombariSystems.github.io/wdd231/chamber/images/business1.jpg">
+    <!-- Social Media Open Graph Metadata -->
+    <meta property="og:title" content="Abuja Business Chamber | Business Directory">
+    <meta property="og:description" content="Discover businesses, services and networking opportunities in Abuja, Nigeria.">
+    <meta property="og:image" content="https://batombariSystems.github.io/wdd231/chamber/images/logo.png">
     <meta property="og:url" content="https://batombariSystems.github.io/wdd231/chamber/directory.html">
     <meta property="og:type" content="website">
 
+    <title>Business Directory | Abuja Business Chamber</title>
+
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="styles/normalize.css">
@@ -36,76 +31,113 @@
 
 <body>
 
+    <!-- Header -->
     <header>
+
         <div class="logo">
             <div class="logo-mark">ABC</div>
-            <p>Abuja Business Chamber</p>
+
+            <h1>Abuja Business Chamber</h1>
         </div>
 
-        <button id="menu-button"
-                type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false">
+        <!-- Mobile Navigation Button -->
+        <button
+            id="menu-button"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
             ☰
         </button>
 
+        <!-- Main Navigation -->
         <nav id="navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="directory.html" class="active">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
-                <li><a href="discover.html">Discover</a></li>
-            </ul>
+
+            <a href="index.html">Home</a>
+
+            <a href="directory.html" class="active" aria-current="page">
+                Directory
+            </a>
+
+            <a href="join.html">Join</a>
+
+            <a href="discover.html">Discover</a>
+
         </nav>
+
     </header>
 
+    <!-- Main Content -->
     <main>
 
-        <!-- Page Heading -->
         <section class="page-heading">
-            <h1>Abuja Business Chamber Directory</h1>
+
+            <h2>Business Directory</h2>
+
             <p>
-                Discover local businesses, connect with entrepreneurs,
-                and explore business opportunities in Abuja, Nigeria.
+                Discover businesses, services and opportunities
+                within Abuja's growing business community.
             </p>
+
         </section>
 
-        <!-- Business Directory Section -->
+        <!-- View Selection -->
         <section class="directory-section">
 
-            <h2>Business Members</h2>
-
             <div class="view-buttons">
-                <button id="grid-button" type="button" aria-label="Display businesses in grid view">
+
+                <button id="grid-button" type="button">
                     Grid View
                 </button>
 
-                <button id="list-button" type="button" aria-label="Display businesses in list view">
+                <button id="list-button" type="button">
                     List View
                 </button>
+
             </div>
 
-            <!-- JavaScript will display business member cards here -->
-            <div id="members" class="members-grid"></div>
+            <!-- Business Members Loaded from JSON -->
+            <section id="members" class="grid-view" aria-label="Chamber business members">
+
+                <p>Loading business members...</p>
+
+            </section>
 
         </section>
 
     </main>
 
+    <!-- Footer -->
     <footer>
 
         <div class="footer-contact">
-            <h2>Abuja Business Chamber</h2>
-            <p>Abuja, Nigeria</p>
+
+            <h3>Abuja Business Chamber</h3>
+
+            <p>Supporting Business Growth in Abuja, Nigeria</p>
+
+            <p>Abuja, Federal Capital Territory, Nigeria</p>
+
             <p>Email: batomny@gmail.com</p>
+
             <p>Phone: +234 806 858 7072</p>
+
         </div>
 
-        <div class="footer-project">
+        <div class="footer-development">
+
+            <p>
+                &copy; <span id="currentyear"></span>
+                Abuja Business Chamber
+            </p>
+
             <p>Batombari Nyienakuna</p>
-            <p>WDD 231 Web Frontend Development</p>
-            <p>&copy; <span id="currentyear"></span> Abuja Business Chamber</p>
-            <p>Last Modified: <span id="lastmodified"></span></p>
+
+            <p>WDD 231</p>
+
+            <p>
+                Last Modified:
+                <span id="lastmodified"></span>
+            </p>
+
         </div>
 
     </footer>
