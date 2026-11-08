@@ -6,19 +6,25 @@
 
     <meta name="description" content="Explore the Abuja Business Chamber directory. Discover local businesses, services, networking opportunities and business resources in Abuja, Nigeria.">
 
-    <meta name="author" content="Batombari Nyienakuna">
+    <meta name="author" content="Your Full Name">
 
-    <!-- Social Media Open Graph Metadata -->
+    <!-- Social Media Metadata -->
     <meta property="og:title" content="Abuja Business Chamber | Business Directory">
     <meta property="og:description" content="Discover businesses, services and networking opportunities in Abuja, Nigeria.">
-    <meta property="og:image" content="https://batombariSystems.github.io/wdd231/chamber/images/logo.png">
+    <meta property="og:image" content="https://batombariSystems.github.io/wdd231/chamber/images/business1.jpg">
     <meta property="og:url" content="https://batombariSystems.github.io/wdd231/chamber/directory.html">
     <meta property="og:type" content="website">
 
-    <title>Business Directory | Abuja Business Chamber</title>
+    <title>Abuja Business Chamber Directory</title>
 
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="styles/normalize.css">
@@ -36,24 +42,26 @@
 
         <div class="logo">
             <div class="logo-mark">ABC</div>
-
-            <h1>Abuja Business Chamber</h1>
+            <p>Abuja Business Chamber</p>
         </div>
 
         <!-- Mobile Navigation Button -->
         <button
             id="menu-button"
             aria-label="Open navigation menu"
-            aria-expanded="false">
+            aria-expanded="false"
+            type="button">
             ☰
         </button>
 
-        <!-- Main Navigation -->
+        <!-- Navigation -->
         <nav id="navigation">
 
             <a href="index.html">Home</a>
 
-            <a href="directory.html" class="active" aria-current="page">
+            <a href="directory.html"
+               class="active"
+               aria-current="page">
                 Directory
             </a>
 
@@ -70,7 +78,7 @@
 
         <section class="page-heading">
 
-            <h2>Business Directory</h2>
+            <h1>Abuja Business Chamber Directory</h1>
 
             <p>
                 Discover businesses, services and opportunities
@@ -79,7 +87,7 @@
 
         </section>
 
-        <!-- View Selection -->
+        <!-- Directory Section -->
         <section class="directory-section">
 
             <div class="view-buttons">
@@ -95,7 +103,10 @@
             </div>
 
             <!-- Business Members Loaded from JSON -->
-            <section id="members" class="grid-view" aria-label="Chamber business members">
+            <section
+                id="members"
+                class="grid-view"
+                aria-label="Chamber business members">
 
                 <p>Loading business members...</p>
 
