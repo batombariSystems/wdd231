@@ -33,8 +33,9 @@ header {
     border-radius: 8px;
 }
 
-.logo h1 {
+.logo p {
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 #menu-button {
