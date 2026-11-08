@@ -1,0 +1,58 @@
+@media screen and (min-width: 700px) {
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+    }
+
+    .logo {
+        align-items: center;
+    }
+
+    .logo h1 {
+        font-size: 1.6rem;
+    }
+
+    #menu-button {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        margin: 0;
+    }
+
+    nav a {
+        padding: 10px 15px;
+        border-radius: 5px;
+    }
+
+    .grid-view {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .list-view .member-card {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .list-view .member-card img {
+        display: block;
+        width: 120px;
+        height: 100px;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-around;
+        text-align: left;
+    }
+}
+

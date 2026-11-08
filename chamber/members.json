@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Capital City Boutique",
+    "address": "Wuse 2, Abuja, FCT",
+    "phone": "+234 800 000 0001",
+    "website": "https://capitalboutique.example",
+    "image": "business1.jpg",
+    "membership": 3,
+    "category": "Fashion and Retail",
+    "description": "Quality fashion and clothing for modern customers."
+  },
+  {
+    "name": "Abuja Tech Solutions",
+    "address": "Garki, Abuja, FCT",
+    "phone": "+234 800 000 0002",
+    "website": "https://abujatech.example",
+    "image": "business2.jpg",
+    "membership": 2,
+    "category": "Technology",
+    "description": "Technology solutions and digital services."
+  },
+  {
+    "name": "Royal Hospitality Group",
+    "address": "Maitama, Abuja, FCT",
+    "phone": "+234 800 000 0003",
+    "website": "https://royalhospitality.example",
+    "image": "business3.jpg",
+    "membership": 3,
+    "category": "Hospitality",
+    "description": "Hospitality and accommodation services."
+  },
+  {
+    "name": "Greenfield Properties",
+    "address": "Jabi, Abuja, FCT",
+    "phone": "+234 800 000 0004",
+    "website": "https://greenfieldproperties.example",
+    "image": "business4.jpg",
+    "membership": 2,
+    "category": "Real Estate",
+    "description": "Property development and real estate services."
+  },
+  {
+    "name": "Prime Healthcare Centre",
+    "address": "Gwarinpa, Abuja, FCT",
+    "phone": "+234 800 000 0005",
+    "website": "https://primehealth.example",
+    "image": "business5.jpg",
+    "membership": 1,
+    "category": "Healthcare",
+    "description": "Healthcare and medical support services."
+  },
+  {
+    "name": "Golden Spoon Restaurant",
+    "address": "Utako, Abuja, FCT",
+    "phone": "+234 800 000 0006",
+    "website": "https://goldenspoon.example",
+    "image": "business6.jpg",
+    "membership": 1,
+    "category": "Food and Restaurant",
+    "description": "Restaurant offering delicious local and international meals."
+  },
+  {
+    "name": "Bright Future Academy",
+    "address": "Kubwa, Abuja, FCT",
+    "phone": "+234 800 000 0007",
+    "website": "https://brightfuture.example",
+    "image": "business7.jpg",
+    "membership": 2,
+    "category": "Education",
+    "description": "Quality education and professional development."
+  }
+]
+

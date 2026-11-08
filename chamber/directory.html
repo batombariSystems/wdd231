@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Explore the Abuja Business Chamber directory. Discover local businesses, services, networking opportunities and business resources in Abuja, Nigeria.">
+
+    <meta name="author" content="Batombari Nyienakuna">
+
+    <!-- Social Media Open Graph Metadata -->
+    <meta property="og:title" content="Abuja Business Chamber | Business Directory">
+    <meta property="og:description" content="Discover businesses, services and networking opportunities in Abuja, Nigeria.">
+    <meta property="og:image" content="https://batombariSystems.github.io/wdd231/chamber/images/logo.png">
+    <meta property="og:url" content="https://batombariSystems.github.io/wdd231/chamber/directory.html">
+    <meta property="og:type" content="website">
+
+    <title>Business Directory | Abuja Business Chamber</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <!-- JavaScript -->
+    <script src="scripts/directory.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <div class="logo">
+            <div class="logo-mark">ABC</div>
+
+            <h1>Abuja Business Chamber</h1>
+        </div>
+
+        <!-- Mobile Navigation Button -->
+        <button
+            id="menu-button"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+            ☰
+        </button>
+
+        <!-- Main Navigation -->
+        <nav id="navigation">
+
+            <a href="index.html">Home</a>
+
+            <a href="directory.html" class="active" aria-current="page">
+                Directory
+            </a>
+
+            <a href="join.html">Join</a>
+
+            <a href="discover.html">Discover</a>
+
+        </nav>
+
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <section class="page-heading">
+
+            <h2>Business Directory</h2>
+
+            <p>
+                Discover businesses, services and opportunities
+                within Abuja's growing business community.
+            </p>
+
+        </section>
+
+        <!-- View Selection -->
+        <section class="directory-section">
+
+            <div class="view-buttons">
+
+                <button id="grid-button" type="button">
+                    Grid View
+                </button>
+
+                <button id="list-button" type="button">
+                    List View
+                </button>
+
+            </div>
+
+            <!-- Business Members Loaded from JSON -->
+            <section id="members" class="grid-view" aria-label="Chamber business members">
+
+                <p>Loading business members...</p>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-contact">
+
+            <h3>Abuja Business Chamber</h3>
+
+            <p>Supporting Business Growth in Abuja, Nigeria</p>
+
+            <p>Abuja, Federal Capital Territory, Nigeria</p>
+
+            <p>Email: batomny@gmail.com</p>
+
+            <p>Phone: +234 806 858 7072</p>
+
+        </div>
+
+        <div class="footer-development">
+
+            <p>
+                &copy; <span id="currentyear"></span>
+                Abuja Business Chamber
+            </p>
+
+            <p>Your Full Name</p>
+
+            <p>WDD 231</p>
+
+            <p>
+                Last Modified:
+                <span id="lastmodified"></span>
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
