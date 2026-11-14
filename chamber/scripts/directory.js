@@ -1,4 +1,4 @@
-/ Select HTML elements
+// Select HTML elements
 const membersContainer = document.querySelector("#members");
 const gridButton = document.querySelector("#grid-button");
 const listButton = document.querySelector("#list-button");
