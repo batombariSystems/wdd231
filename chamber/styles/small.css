@@ -3,10 +3,16 @@
     --secondary-color: #D4A017;
     --background-color: #F4F6F8;
     --text-color: #222222;
+    --white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    font-family: poppins, sans-serif;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -15,7 +21,7 @@ body {
 /* Header */
 header {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white);
     padding: 15px;
 }
 
@@ -34,16 +40,18 @@ header {
 }
 
 .logo p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
 }
 
 #menu-button {
     display: block;
     margin: 15px 0 0 auto;
-    padding: 8px 14px;
+    padding: 10px 15px;
     background: var(--secondary-color);
+    color: var(--primary-color);
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 1.3rem;
 }
@@ -60,9 +68,10 @@ nav.show {
 }
 
 nav a {
-    color: white;
+    color: var(--white);
     text-decoration: none;
     padding: 10px;
+    border-radius: 5px;
 }
 
 nav a:hover,
@@ -71,41 +80,74 @@ nav a.active {
     color: var(--primary-color);
 }
 
+/* Keyboard accessibility */
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+}
+
 /* Main content */
 main {
+    width: 100%;
     max-width: 1100px;
     margin: 25px auto;
     padding: 15px;
 }
 
-main h2 {
-    color: var(--primary-color);
-    margin-bottom: 10px;
-    font-family: lora, serif;
+/* Page heading */
+.page-heading {
+    text-align: center;
+    padding: 25px 10px;
+    margin-bottom: 30px;
 }
 
+.page-heading h1 {
+    color: var(--primary-color);
+    font-family: "Lora", serif;
+    font-size: 1.8rem;
+}
+
+.page-heading p {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Section headings */
+main h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-family: "Lora", serif;
+}
+
+/* View buttons */
 .view-buttons {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 12px;
     margin: 25px 0;
 }
 
 .view-buttons button {
-    background: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    border: none;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 22px;
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
     cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
 }
 
-.view-buttons button:hover {
-    background: var(--secondary-color);
+.view-buttons button:hover,
+.view-buttons button[aria-pressed="true"] {
+    background-color: var(--secondary-color);
     color: var(--primary-color);
+    border-color: var(--secondary-color);
 }
 
-/* Grid */
+/* Grid view */
 .grid-view {
     display: grid;
     grid-template-columns: 1fr;
@@ -114,16 +156,17 @@ main h2 {
 
 /* Business cards */
 .member-card {
-    background: white;
+    background-color: var(--white);
     padding: 18px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    overflow-wrap: anywhere;
 }
 
 .member-card img {
     width: 100%;
-    height: 170px;
+    height: 180px;
     object-fit: cover;
     margin-bottom: 12px;
     border-radius: 5px;
@@ -132,6 +175,11 @@ main h2 {
 .member-card h3 {
     color: var(--primary-color);
     margin-bottom: 8px;
+    font-family: "Lora", serif;
+}
+
+.member-card p {
+    margin: 8px 0;
 }
 
 .member-card a {
@@ -145,31 +193,42 @@ main h2 {
 .list-view {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
 
 .list-view .member-card {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
     text-align: left;
     box-shadow: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #CCCCCC;
 }
 
 .list-view .member-card img {
-    display: none;
+    width: 90px;
+    height: 90px;
+    grid-row: span 8;
+    object-fit: cover;
 }
 
 /* Footer */
 footer {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white);
     padding: 25px 15px;
     text-align: center;
     margin-top: 40px;
 }
 
-footer h3 {
-    color: var(--secondary-color);
-    margin-bottom: 10px;
+footer h2 {
+    color: var(--white);
+    font-family: "Lora", serif;
+}
+
+footer a {
+    color: var(--white);
 }
 
 footer div {

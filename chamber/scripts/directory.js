@@ -1,11 +1,32 @@
-// Select HTML elements
+/ Select HTML elements
 const membersContainer = document.querySelector("#members");
 const gridButton = document.querySelector("#grid-button");
 const listButton = document.querySelector("#list-button");
 const menuButton = document.querySelector("#menu-button");
 const navigation = document.querySelector("#navigation");
 
-// Load members from JSON
+// Set the default directory view
+function setView(view) {
+    const isGrid = view === "grid";
+
+    membersContainer.classList.toggle("grid-view", isGrid);
+    membersContainer.classList.toggle("list-view", !isGrid);
+
+    gridButton.setAttribute("aria-pressed", String(isGrid));
+    listButton.setAttribute("aria-pressed", String(!isGrid));
+}
+
+// Grid view button
+gridButton.addEventListener("click", () => {
+    setView("grid");
+});
+
+// List view button
+listButton.addEventListener("click", () => {
+    setView("list");
+});
+
+// Load business members from JSON
 async function getMembers() {
     try {
         const response = await fetch("data/members.json");
@@ -26,7 +47,7 @@ async function getMembers() {
     }
 }
 
-// Display business cards
+// Display business members
 function displayMembers(members) {
     membersContainer.innerHTML = "";
 
@@ -59,7 +80,6 @@ function displayMembers(members) {
 
         // Membership level
         const level = document.createElement("p");
-
         const membership = Number(member.membership);
 
         level.textContent =
@@ -78,7 +98,7 @@ function displayMembers(members) {
         website.target = "_blank";
         website.rel = "noopener noreferrer";
 
-        // Add all elements to the card
+        // Add elements to card
         card.append(
             image,
             name,
@@ -90,30 +110,9 @@ function displayMembers(members) {
             website
         );
 
-        // Add card to members container
         membersContainer.appendChild(card);
     });
 }
-
-// Grid view button
-gridButton.addEventListener("click", () => {
-
-    membersContainer.classList.add("grid-view");
-    membersContainer.classList.remove("list-view");
-
-    gridButton.setAttribute("aria-pressed", "true");
-    listButton.setAttribute("aria-pressed", "false");
-});
-
-// List view button
-listButton.addEventListener("click", () => {
-
-    membersContainer.classList.add("list-view");
-    membersContainer.classList.remove("grid-view");
-
-    listButton.setAttribute("aria-pressed", "true");
-    gridButton.setAttribute("aria-pressed", "false");
-});
 
 // Mobile navigation
 menuButton.addEventListener("click", () => {
@@ -122,7 +121,7 @@ menuButton.addEventListener("click", () => {
 
     const isOpen = navigation.classList.contains("show");
 
-    menuButton.setAttribute("aria-expanded", isOpen);
+    menuButton.setAttribute("aria-expanded", String(isOpen));
 
     menuButton.setAttribute(
         "aria-label",
@@ -138,6 +137,7 @@ document.querySelector("#currentyear").textContent =
 document.querySelector("#lastmodified").textContent =
     document.lastModified;
 
-// Load business members
+// Initialize directory
+setView("grid");
 getMembers();
 

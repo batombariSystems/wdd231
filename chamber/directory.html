@@ -50,12 +50,13 @@
             id="menu-button"
             aria-label="Open navigation menu"
             aria-expanded="false"
+            aria-controls="navigation"
             type="button">
             ☰
         </button>
 
         <!-- Navigation -->
-        <nav id="navigation">
+        <nav id="navigation" aria-label="Main navigation">
 
             <a href="index.html">Home</a>
 
@@ -93,13 +94,22 @@
 
             <h2>Business Members</h2>
 
-            <div class="view-buttons">
+            <!-- Grid and List View Controls -->
+            <div class="view-buttons"
+                 role="group"
+                 aria-label="Choose directory layout">
 
-                <button id="grid-button" type="button">
+                <button
+                    id="grid-button"
+                    type="button"
+                    aria-pressed="true">
                     Grid View
                 </button>
 
-                <button id="list-button" type="button">
+                <button
+                    id="list-button"
+                    type="button"
+                    aria-pressed="false">
                     List View
                 </button>
 
@@ -108,7 +118,8 @@
             <!-- Business Members Loaded from JSON -->
             <div
                 id="members"
-                class="grid-view">
+                class="grid-view"
+                aria-live="polite">
 
                 <p>Loading business members...</p>
 
@@ -131,12 +142,16 @@
 
             <p>
                 Email:
-                <a href="mailto:batomny@gmail.com">batomny@gmail.com</a>
+                <a href="mailto:batomny@gmail.com">
+                    batomny@gmail.com
+                </a>
             </p>
 
             <p>
                 Phone:
-                <a href="tel:+2348068587072">+234 8068587072</a>
+                <a href="tel:+2348068587072">
+                    +234 8068587072
+                </a>
             </p>
 
         </div>
