@@ -82,4 +82,19 @@
         flex: 1;
     }
 }
+/* Desktop Member Spotlights */
+@media screen and (min-width: 700px) {
 
+    .spotlight-container {
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+        gap: 25px;
+    }
+
+    .spotlight-card {
+        padding: 25px;
+    }
+
+}

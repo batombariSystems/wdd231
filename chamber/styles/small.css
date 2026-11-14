@@ -234,4 +234,72 @@ footer a {
 footer div {
     margin-bottom: 20px;
 }
+/* Member Spotlight Section */
+.spotlight-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px 15px;
+    text-align: center;
+}
 
+.spotlight-section h2 {
+    color: #17365D;
+    font-family: "Lora", serif;
+    margin-bottom: 10px;
+}
+
+.spotlight-intro {
+    margin-bottom: 25px;
+    color: #222222;
+}
+
+/* Spotlight Cards */
+.spotlight-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.spotlight-card {
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 10px;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.spotlight-card img {
+    width: 120px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.spotlight-card h3 {
+    color: #17365D;
+    font-family: "Lora", serif;
+}
+
+.spotlight-card p {
+    color: #222222;
+    margin: 8px 0;
+    overflow-wrap: anywhere;
+}
+
+.spotlight-card .membership-level {
+    display: inline-block;
+    background-color: #17365D;
+    color: #FFFFFF;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.spotlight-card a {
+    display: inline-block;
+    margin-top: 12px;
+    color: #17365D;
+    font-weight: bold;
+    text-decoration: underline;
+}
