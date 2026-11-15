@@ -97,4 +97,53 @@
         padding: 25px;
     }
 
+    /* Home Page Hero */
+    .hero {
+        min-height: 450px;
+    }
+
+    .hero > img {
+        height: 450px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    /* Events and Weather */
+    .home-information {
+        grid-template-columns: 1.4fr 1fr;
+        align-items: stretch;
+        gap: 25px;
+    }
+
+    .events-section,
+    .weather-section {
+        padding: 25px;
+    }
+
+    /* Three-day weather forecast */
+    #weather-forecast {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .forecast-card {
+        padding: 10px 5px;
+    }
+
+    /* Business Spotlights */
+    .spotlight-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Join Section */
+    .join-section {
+        padding: 45px 30px;
+    }
+
 }
