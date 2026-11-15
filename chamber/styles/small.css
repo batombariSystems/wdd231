@@ -18,6 +18,10 @@ body {
     line-height: 1.6;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Lora", serif;
+}
+
 /* Header */
 header {
     background-color: var(--primary-color);
@@ -104,7 +108,6 @@ main {
 
 .page-heading h1 {
     color: var(--primary-color);
-    font-family: "Lora", serif;
     font-size: 1.8rem;
 }
 
@@ -117,7 +120,6 @@ main {
 main h2 {
     color: var(--primary-color);
     margin-bottom: 15px;
-    font-family: "Lora", serif;
 }
 
 /* View buttons */
@@ -175,7 +177,6 @@ main h2 {
 .member-card h3 {
     color: var(--primary-color);
     margin-bottom: 8px;
-    font-family: "Lora", serif;
 }
 
 .member-card p {
@@ -224,7 +225,6 @@ footer {
 
 footer h2 {
     color: var(--white);
-    font-family: "Lora", serif;
 }
 
 footer a {
@@ -234,6 +234,7 @@ footer a {
 footer div {
     margin-bottom: 20px;
 }
+
 /* Member Spotlight Section */
 .spotlight-section {
     max-width: 1100px;
@@ -243,14 +244,13 @@ footer div {
 }
 
 .spotlight-section h2 {
-    color: #17365D;
-    font-family: "Lora", serif;
+    color: var(--primary-color);
     margin-bottom: 10px;
 }
 
 .spotlight-intro {
     margin-bottom: 25px;
-    color: #222222;
+    color: var(--text-color);
 }
 
 /* Spotlight Cards */
@@ -261,7 +261,7 @@ footer div {
 }
 
 .spotlight-card {
-    background-color: #FFFFFF;
+    background-color: var(--white);
     padding: 22px;
     border-radius: 10px;
     border: 1px solid #CCCCCC;
@@ -277,20 +277,19 @@ footer div {
 }
 
 .spotlight-card h3 {
-    color: #17365D;
-    font-family: "Lora", serif;
+    color: var(--primary-color);
 }
 
 .spotlight-card p {
-    color: #222222;
+    color: var(--text-color);
     margin: 8px 0;
     overflow-wrap: anywhere;
 }
 
 .spotlight-card .membership-level {
     display: inline-block;
-    background-color: #17365D;
-    color: #FFFFFF;
+    background-color: var(--primary-color);
+    color: var(--white);
     padding: 5px 12px;
     border-radius: 5px;
     font-weight: bold;
@@ -299,15 +298,12 @@ footer div {
 .spotlight-card a {
     display: inline-block;
     margin-top: 12px;
-    color: #17365D;
+    color: var(--primary-color);
     font-weight: bold;
     text-decoration: underline;
 }
 
-/* ========================================
-   HOME PAGE - HERO SECTION
-======================================== */
-
+/* HOME PAGE - HERO SECTION */
 .hero {
     position: relative;
     width: 100%;
@@ -328,7 +324,7 @@ footer div {
     position: absolute;
     inset: 0;
     background: rgba(10, 30, 55, 0.68);
-    color: #FFFFFF;
+    color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -338,7 +334,6 @@ footer div {
 }
 
 .hero-content h1 {
-    font-family: "Lora", serif;
     font-size: 1.9rem;
     margin-bottom: 15px;
 }
@@ -362,14 +357,10 @@ footer div {
 
 .hero-button:hover,
 .join-button:hover {
-    background-color: #FFFFFF;
+    background-color: var(--white);
 }
 
-
-/* ========================================
-   WELCOME SECTION
-======================================== */
-
+/* WELCOME SECTION */
 .welcome-section {
     text-align: center;
     padding: 25px 10px;
@@ -386,11 +377,7 @@ footer div {
     font-weight: 700;
 }
 
-
-/* ========================================
-   EVENTS AND WEATHER LAYOUT
-======================================== */
-
+/* EVENTS AND WEATHER LAYOUT */
 .home-information {
     display: grid;
     grid-template-columns: 1fr;
@@ -400,15 +387,13 @@ footer div {
 
 .events-section,
 .weather-section {
-    background-color: #FFFFFF;
+    background-color: var(--white);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-
 /* Events */
-
 .event-card {
     display: flex;
     gap: 15px;
@@ -424,7 +409,7 @@ footer div {
     min-width: 65px;
     height: 75px;
     background-color: var(--primary-color);
-    color: #FFFFFF;
+    color: var(--white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -442,7 +427,6 @@ footer div {
 
 .event-details h3 {
     color: var(--primary-color);
-    font-family: "Lora", serif;
     margin: 0 0 8px;
 }
 
@@ -454,11 +438,7 @@ footer div {
     font-size: 0.85rem;
 }
 
-
-/* ========================================
-   WEATHER SECTION
-======================================== */
-
+/* WEATHER SECTION */
 .current-weather {
     display: flex;
     align-items: center;
@@ -482,7 +462,6 @@ footer div {
 
 .weather-section > h3 {
     color: var(--primary-color);
-    font-family: "Lora", serif;
     margin-top: 20px;
 }
 
@@ -521,14 +500,10 @@ footer div {
     font-size: 0.85rem;
 }
 
-
-/* ========================================
-   JOIN SECTION
-======================================== */
-
+/* JOIN SECTION */
 .join-section {
     background-color: var(--primary-color);
-    color: #FFFFFF;
+    color: var(--white);
     padding: 35px 20px;
     text-align: center;
     border-radius: 10px;
@@ -536,7 +511,7 @@ footer div {
 }
 
 .join-section h2 {
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .join-section p {
@@ -544,11 +519,7 @@ footer div {
     margin: 15px auto 25px;
 }
 
-
-/* ========================================
-   GENERAL RESPONSIVE IMPROVEMENTS
-======================================== */
-
+/* GENERAL RESPONSIVE IMPROVEMENTS */
 .hero-button:focus-visible,
 .join-button:focus-visible {
     outline: 3px solid var(--secondary-color);
@@ -559,11 +530,4 @@ footer div {
 .forecast-card,
 .spotlight-card {
     overflow-wrap: anywhere;
-}
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lora', serif;
 }

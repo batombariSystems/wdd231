@@ -1,3 +1,4 @@
+/* Desktop and tablet layout */
 @media screen and (min-width: 700px) {
 
     /* Header */
@@ -47,16 +48,13 @@
         font-size: 2.3rem;
     }
 
-    /* Responsive grid */
+    /* Responsive directory grid */
     .grid-view {
-        grid-template-columns: repeat(
-            auto-fit,
-            minmax(250px, 1fr)
-        );
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 25px;
     }
 
-    /* List view */
+    /* Directory list view */
     .list-view .member-card {
         grid-template-columns: 140px minmax(0, 1fr);
         gap: 20px;
@@ -81,15 +79,10 @@
     footer div {
         flex: 1;
     }
-}
-/* Desktop Member Spotlights */
-@media screen and (min-width: 700px) {
 
+    /* Business spotlights */
     .spotlight-container {
-        grid-template-columns: repeat(
-            auto-fit,
-            minmax(250px, 1fr)
-        );
+        grid-template-columns: repeat(3, 1fr);
         gap: 25px;
     }
 
@@ -97,7 +90,7 @@
         padding: 25px;
     }
 
-    /* Home Page Hero */
+    /* Home page hero */
     .hero {
         min-height: 450px;
     }
@@ -114,7 +107,7 @@
         font-size: 1.1rem;
     }
 
-    /* Events and Weather */
+    /* Events and weather */
     .home-information {
         grid-template-columns: 1.4fr 1fr;
         align-items: stretch;
@@ -136,14 +129,8 @@
         padding: 10px 5px;
     }
 
-    /* Business Spotlights */
-    .spotlight-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    /* Join Section */
+    /* Join section */
     .join-section {
         padding: 45px 30px;
     }
-
 }
