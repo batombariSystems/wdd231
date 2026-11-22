@@ -22,13 +22,26 @@
 <body>
 
 <header>
-    <div class="header-content">
-        <img src="images/site-logo.svg" alt="Abuja Business Chamber logo" class="logo">
-        <div>
-            <h1>Abuja Business Chamber</h1>
-            <p>Connecting Businesses. Building Abuja.</p>
-        </div>
+    <div class="logo">
+        <div class="logo-mark">ABC</div>
+        <p>Abuja Business Chamber</p>
     </div>
+
+    <button
+        id="menu-button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navigation"
+        type="button">
+        ☰
+    </button>
+
+    <nav id="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="directory.html">Directory</a>
+        <a href="join.html" class="active" aria-current="page">Join</a>
+        <a href="discover.html">Discover</a>
+    </nav>
 </header>
 
 <nav>
