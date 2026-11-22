@@ -531,3 +531,40 @@ footer div {
 .spotlight-card {
     overflow-wrap: anywhere;
 }
+/* Navigation Fix */
+nav {
+    background-color: #102743;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: #183a63;
+    color: white;
+}
+
+#menu-button {
+    display: block;
+    background-color: #183a63;
+    color: white;
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
