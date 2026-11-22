@@ -5,8 +5,9 @@
     padding: 1.5rem;
 }
 
-.join-main > h2 {
+.join-main > h1 {
     text-align: center;
+    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
