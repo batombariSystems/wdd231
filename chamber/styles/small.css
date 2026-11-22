@@ -48,11 +48,12 @@ header {
     font-weight: bold;
 }
 
+/* Mobile navigation button */
 #menu-button {
     display: block;
     margin: 15px 0 0 auto;
     padding: 10px 15px;
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
     color: var(--primary-color);
     border: none;
     border-radius: 5px;
@@ -60,13 +61,16 @@ header {
     font-size: 1.3rem;
 }
 
+/* Mobile navigation */
 nav {
     display: none;
     flex-direction: column;
     gap: 10px;
     margin-top: 15px;
+    background-color: var(--primary-color);
 }
 
+nav.open,
 nav.show {
     display: flex;
 }
@@ -303,7 +307,7 @@ footer div {
     text-decoration: underline;
 }
 
-/* HOME PAGE - HERO SECTION */
+/* Home Page Hero */
 .hero {
     position: relative;
     width: 100%;
@@ -360,7 +364,7 @@ footer div {
     background-color: var(--white);
 }
 
-/* WELCOME SECTION */
+/* Welcome Section */
 .welcome-section {
     text-align: center;
     padding: 25px 10px;
@@ -377,7 +381,7 @@ footer div {
     font-weight: 700;
 }
 
-/* EVENTS AND WEATHER LAYOUT */
+/* Events and Weather Layout */
 .home-information {
     display: grid;
     grid-template-columns: 1fr;
@@ -438,7 +442,7 @@ footer div {
     font-size: 0.85rem;
 }
 
-/* WEATHER SECTION */
+/* Weather Section */
 .current-weather {
     display: flex;
     align-items: center;
@@ -500,7 +504,7 @@ footer div {
     font-size: 0.85rem;
 }
 
-/* JOIN SECTION */
+/* Join Section */
 .join-section {
     background-color: var(--primary-color);
     color: var(--white);
@@ -519,52 +523,17 @@ footer div {
     margin: 15px auto 25px;
 }
 
-/* GENERAL RESPONSIVE IMPROVEMENTS */
+/* Focus Accessibility */
 .hero-button:focus-visible,
 .join-button:focus-visible {
     outline: 3px solid var(--secondary-color);
     outline-offset: 4px;
 }
 
+/* Responsive overflow prevention */
 .event-card,
 .forecast-card,
 .spotlight-card {
     overflow-wrap: anywhere;
 }
-/* Navigation Fix */
-nav {
-    background-color: #102743;
-}
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    list-style: none;
-}
-
-nav ul li a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 1rem;
-}
-
-nav ul li a:hover,
-nav ul li a:focus {
-    background-color: #183a63;
-    color: white;
-}
-
-#menu-button {
-    display: block;
-    background-color: #183a63;
-    color: white;
-    border: none;
-    padding: 0.8rem 1rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
