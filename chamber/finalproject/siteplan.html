@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Site plan for Maths Challenge Hub, an interactive mathematics learning website for primary school learners.">
+    <meta name="author" content="Batombari Nyienakuna">
+
+    <title>Maths Challenge Hub | Website Site Plan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy: #17324D;
+            --yellow: #FFD166;
+            --background: #F4F7FB;
+            --teal: #2A9D8F;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+            background-color: var(--background);
+            color: var(--navy);
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 35px 15px;
+            border-bottom: 7px solid var(--yellow);
+        }
+
+        header h1 {
+            font-family: "Nunito", sans-serif;
+            font-size: 2.3rem;
+            margin: 0;
+        }
+
+        header p {
+            color: var(--yellow);
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 30px auto;
+            padding: 0 18px;
+        }
+
+        section {
+            background-color: var(--white);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--teal);
+        }
+
+        h2 {
+            font-family: "Nunito", sans-serif;
+            color: var(--navy);
+            border-bottom: 2px solid var(--yellow);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            font-family: "Nunito", sans-serif;
+            color: var(--teal);
+        }
+
+        p, li {
+            font-size: 1rem;
+        }
+
+        strong {
+            color: var(--navy);
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .color-box {
+            border: 1px solid #D5DDE5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .swatch {
+            height: 75px;
+        }
+
+        .color-info {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        .font-example {
+            padding: 15px;
+            margin: 12px 0;
+            background-color: var(--background);
+            border-radius: 6px;
+        }
+
+        .heading-font {
+            font-family: "Nunito", sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .body-font {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .wireframe-note {
+            padding: 15px;
+            border: 2px dashed var(--teal);
+            border-radius: 8px;
+            background-color: var(--background);
+        }
+
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 35px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media screen and (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 18px;
+            }
+
+            main {
+                padding: 0 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Maths Challenge Hub</h1>
+    <p>Think • Solve • Learn • Enjoy!</p>
+    <p>WDD231 Individual Website Project Site Plan</p>
+</header>
+
+<main>
+
+    <section>
+        <h2>1. Site Name</h2>
+
+        <h3>Maths Challenge Hub</h3>
+
+        <p>
+            I selected the name Maths Challenge Hub because it represents
+            a central place where primary school learners can explore
+            mathematics through fun challenges, puzzles, quizzes and
+            educational resources.
+        </p>
+
+        <p>
+            The word "Maths" clearly identifies the subject, "Challenge"
+            communicates the interactive activities learners will enjoy,
+            while "Hub" represents a central place for learning and
+            discovering mathematical ideas.
+        </p>
+
+        <p><strong>Proposed domain:</strong> maths-challenge-hub.com</p>
+        <p><strong>Tagline:</strong> Think • Solve • Learn • Enjoy!</p>
+    </section>
+
+    <section>
+        <h2>2. Site Purpose</h2>
+
+        <p>
+            Maths Challenge Hub is an educational website designed to help
+            primary school learners improve their mathematical skills
+            through enjoyable and interactive learning experiences.
+        </p>
+
+        <p>
+            The website will provide mathematical challenges, brain teasers,
+            quizzes, puzzles and learning resources that encourage learners
+            to develop critical thinking, logical reasoning and
+            problem-solving skills.
+        </p>
+
+        <p>
+            It will also provide a welcoming learning environment where
+            children can practise mathematical concepts, test their
+            knowledge and build confidence in mathematics.
+        </p>
+
+        <h3>Main Website Content</h3>
+
+        <ul>
+            <li>Interactive mathematics challenges and quizzes.</li>
+            <li>Mathematical puzzles and brain teasers.</li>
+            <li>Learning tips and explanations of mathematical concepts.</li>
+            <li>Practice questions covering different areas of mathematics.</li>
+            <li>Feedback to help learners check their answers.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Target Audience</h2>
+
+        <p>
+            The main target audience is primary school learners, particularly
+            children between the ages of 8 and 12. Teachers and parents
+            may also use the website to support children's mathematics
+            education.
+        </p>
+
+        <p>
+            The website will use simple language, colourful presentation,
+            clear instructions and age-appropriate activities to make
+            mathematics accessible and enjoyable.
+        </p>
+    </section>
+
+    <section>
+        <h2>4. Scenarios</h2>
+
+        <p>
+            The following questions represent what visitors to Maths
+            Challenge Hub may want to know or accomplish.
+        </p>
+
+        <h3>Scenario 1</h3>
+        <p>
+            How can I practise multiplication and division through fun
+            mathematics challenges?
+        </p>
+
+        <h3>Scenario 2</h3>
+        <p>
+            Where can I find interesting mathematical puzzles that will
+            improve my problem-solving skills?
+        </p>
+
+        <h3>Scenario 3</h3>
+        <p>
+            How can I check my answers and know whether I have solved
+            a mathematics question correctly?
+        </p>
+
+        <h3>Scenario 4</h3>
+        <p>
+            Where can I find simple explanations and helpful tips for
+            understanding difficult mathematical topics?
+        </p>
+    </section>
+
+    <section>
+        <h2>5. Color Scheme</h2>
+
+        <p>
+            The selected colour scheme combines navy blue, golden yellow,
+            teal and a light background. These colours create a friendly,
+            welcoming and educational appearance.
+        </p>
+
+        <div class="color-palette">
+
+            <div class="color-box">
+                <div class="swatch" style="background-color: #17324D;"></div>
+                <div class="color-info">
+                    <strong>Navy Blue</strong><br>
+                    #17324D<br>
+                    Used for headings, navigation and footer backgrounds.
+                </div>
+            </div>
+
+            <div class="color-box">
+                <div class="swatch" style="background-color: #FFD166;"></div>
+                <div class="color-info">
+                    <strong>Golden Yellow</strong><br>
+                    #FFD166<br>
+                    Used for highlights, borders and important accents.
+                </div>
+            </div>
+
+            <div class="color-box">
+                <div class="swatch" style="background-color: #F4F7FB;"></div>
+                <div class="color-info">
+                    <strong>Light Background</strong><br>
+                    #F4F7FB<br>
+                    Used for the main page background and content areas.
+                </div>
+            </div>
+
+            <div class="color-box">
+                <div class="swatch" style="background-color: #2A9D8F;"></div>
+                <div class="color-info">
+                    <strong>Teal</strong><br>
+                    #2A9D8F<br>
+                    Used for section accents, secondary headings and buttons.
+                </div>
+            </div>
+
+        </div>
+
+        <h3>Colour Application</h3>
+
+        <ul>
+            <li>Navy blue will provide strong visual structure.</li>
+            <li>Golden yellow will draw attention to important information.</li>
+            <li>Light backgrounds will improve readability and reduce visual clutter.</li>
+            <li>Teal will provide contrast and highlight interactive elements.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Typography</h2>
+
+        <p>
+            Two fonts will be used throughout the website to maintain
+            readability and a consistent visual identity.
+        </p>
+
+        <h3>Font 1: Nunito</h3>
+
+        <div class="font-example">
+            <p class="heading-font">
+                Maths Challenge Hub
+            </p>
+            <p>
+                This font will be used for the main title, section headings,
+                subheadings and important labels. Its friendly appearance
+                makes the website welcoming to young learners.
+            </p>
+        </div>
+
+        <h3>Font 2: Open Sans</h3>
+
+        <div class="font-example">
+            <p class="body-font">
+                Mathematics becomes enjoyable when learners practise
+                regularly, explore new challenges and discover solutions.
+            </p>
+            <p>
+                This font will be used for paragraphs, instructions,
+                navigation links and general website content because
+                it is clear and easy to read.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>7. Website Structure and Navigation</h2>
+
+        <p>
+            The website will contain three main pages connected through
+            a responsive navigation menu.
+        </p>
+
+        <h3>Page 1: Home (index.html)</h3>
+        <ul>
+            <li>Introduction to Maths Challenge Hub.</li>
+            <li>Welcome message and website purpose.</li>
+            <li>Featured mathematics challenges.</li>
+            <li>Links to the challenges and learning resources pages.</li>
+        </ul>
+
+        <h3>Page 2: Challenges (challenges.html)</h3>
+        <ul>
+            <li>Interactive mathematics questions and quizzes.</li>
+            <li>At least fifteen dynamically generated challenge items.</li>
+            <li>Different mathematical topics and difficulty levels.</li>
+            <li>Buttons for checking answers and viewing explanations.</li>
+            <li>Modal dialog for displaying additional challenge information.</li>
+        </ul>
+
+        <h3>Page 3: Learning Resources (resources.html)</h3>
+        <ul>
+            <li>Mathematical tips and learning materials.</li>
+            <li>Explanations of important mathematical concepts.</li>
+            <li>Study and practice recommendations.</li>
+            <li>Helpful learning links and resources.</li>
+        </ul>
+
+        <h3>Additional Supporting Pages</h3>
+        <ul>
+            <li>Attributions page for acknowledging external sources.</li>
+            <li>Form action page for displaying submitted form information.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>8. JavaScript Functionality</h2>
+
+        <p>
+            JavaScript will be used to make Maths Challenge Hub interactive
+            and dynamic.
+        </p>
+
+        <ul>
+            <li>
+                <strong>Data Fetching:</strong>
+                Fetch mathematics challenges from a local JSON file using
+                the Fetch API and async/await.
+            </li>
+
+            <li>
+                <strong>Error Handling:</strong>
+                Use try...catch blocks to handle errors during data retrieval.
+            </li>
+
+            <li>
+                <strong>Dynamic Content:</strong>
+                Generate and display at least fifteen mathematics challenges
+                from the data source, with at least four properties per item.
+            </li>
+
+            <li>
+                <strong>Local Storage:</strong>
+                Save learners' preferences or challenge progress.
+            </li>
+
+            <li>
+                <strong>Modal Dialog:</strong>
+                Display additional information, explanations or feedback
+                when a learner selects a challenge.
+            </li>
+
+            <li>
+                <strong>DOM Manipulation:</strong>
+                Use JavaScript to update page content and respond to
+                user interactions.
+            </li>
+
+            <li>
+                <strong>Array Methods:</strong>
+                Use methods such as forEach(), map() and filter()
+                to process challenge data.
+            </li>
+
+            <li>
+                <strong>Template Literals:</strong>
+                Generate dynamic HTML content using template literals.
+            </li>
+
+            <li>
+                <strong>ES Modules:</strong>
+                Organise JavaScript into reusable modules.
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>9. Wireframes</h2>
+
+        <p>
+            Wireframes will illustrate the proposed layout of the home page
+            on small and large screens before the website is developed.
+        </p>
+
+        <div class="wireframe-note">
+            <h3>Small Viewport (Mobile)</h3>
+            <p>
+                Insert your own hand-drawn black-and-white mobile home page
+                wireframe here.
+            </p>
+            <p>
+                The sketch should show the mobile header, hamburger menu,
+                welcome section, featured challenge, learning resources
+                and footer arranged vertically.
+            </p>
+        </div>
+
+        <div class="wireframe-note" style="margin-top: 15px;">
+            <h3>Large Viewport (Desktop/Tablet)</h3>
+            <p>
+                Insert your own hand-drawn black-and-white desktop home page
+                wireframe here.
+            </p>
+            <p>
+                The sketch should show the logo and horizontal navigation,
+                welcome section, featured challenges, learning resources
+                and footer arranged across the available screen width.
+            </p>
+        </div>
+
+        <p>
+            Both wireframes will be created as hand-drawn sketches and
+            photographed or scanned before being included in the final
+            site plan.
+        </p>
+    </section>
+
+    <section>
+        <h2>10. Responsive Design and Accessibility</h2>
+
+        <ul>
+            <li>
+                The website will adapt to mobile, tablet and desktop screens.
+            </li>
+            <li>
+                A hamburger menu will be provided for smaller screens.
+            </li>
+            <li>
+                Desktop navigation links will display horizontally.
+            </li>
+            <li>
+                Semantic HTML elements will be used throughout the website.
+            </li>
+            <li>
+                Images will include appropriate alternative text.
+            </li>
+            <li>
+                Forms and interactive elements will have accessible labels.
+            </li>
+            <li>
+                Keyboard navigation and visible focus indicators will
+                support accessibility.
+            </li>
+            <li>
+                Images will be optimised and lazy-loaded where appropriate.
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>11. Testing and Evaluation</h2>
+
+        <p>
+            The completed site plan and website will be tested using
+            the following tools:
+        </p>
+
+        <ul>
+            <li>
+                <strong>W3C Markup Validator:</strong>
+                To identify and correct HTML errors.
+            </li>
+
+            <li>
+                <strong>WAVE Accessibility Evaluation Tool:</strong>
+                To identify accessibility issues.
+            </li>
+
+            <li>
+                <strong>Google PageSpeed Insights / Lighthouse:</strong>
+                To evaluate performance, accessibility, best practices
+                and SEO.
+            </li>
+
+            <li>
+                <strong>WebAIM Contrast Checker:</strong>
+                To check colour contrast and readability.
+            </li>
+
+            <li>
+                <strong>Browser Testing:</strong>
+                To check the website on different browsers and screen sizes.
+            </li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    <p><strong>Maths Challenge Hub</strong></p>
+    <p>Think • Solve • Learn • Enjoy!</p>
+    <p>WDD231 Individual Website Project</p>
+    <p>&copy; 2026 Batombari Nyienakuna</p>
+</footer>
+
+</body>
+</html>
