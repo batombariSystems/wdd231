@@ -1,12 +1,18 @@
-// Select HTML elements
+// ========================================
+// SELECT HTML ELEMENTS
+// ========================================
 const membersContainer = document.querySelector("#members");
 const gridButton = document.querySelector("#grid-button");
 const listButton = document.querySelector("#list-button");
 const menuButton = document.querySelector("#menu-button");
 const navigation = document.querySelector("#navigation");
 
-// Set the default directory view
+// ========================================
+// GRID AND LIST VIEW
+// ========================================
 function setView(view) {
+    if (!membersContainer || !gridButton || !listButton) return;
+
     const isGrid = view === "grid";
 
     membersContainer.classList.toggle("grid-view", isGrid);
@@ -16,26 +22,34 @@ function setView(view) {
     listButton.setAttribute("aria-pressed", String(!isGrid));
 }
 
-// Grid view button
-gridButton.addEventListener("click", () => {
+gridButton?.addEventListener("click", () => {
     setView("grid");
 });
 
-// List view button
-listButton.addEventListener("click", () => {
+listButton?.addEventListener("click", () => {
     setView("list");
 });
 
-// Load business members from JSON
+// ========================================
+// LOAD BUSINESS MEMBERS FROM JSON
+// ========================================
 async function getMembers() {
+    if (!membersContainer) return;
+
     try {
         const response = await fetch("data/members.json");
 
         if (!response.ok) {
-            throw new Error("Unable to load business members.");
+            throw new Error(`Request failed: ${response.status}`);
         }
 
         const members = await response.json();
+
+        if (!Array.isArray(members) || members.length === 0) {
+            membersContainer.innerHTML =
+                "<p>No business members are currently available.</p>";
+            return;
+        }
 
         displayMembers(members);
 
@@ -47,20 +61,25 @@ async function getMembers() {
     }
 }
 
-// Display business members
+// ========================================
+// DISPLAY BUSINESS MEMBERS
+// ========================================
 function displayMembers(members) {
     membersContainer.innerHTML = "";
 
     members.forEach((member) => {
-
         const card = document.createElement("article");
-        card.classList.add("member-card");
+        card.className = "member-card";
 
         // Business image
         const image = document.createElement("img");
         image.src = `images/${member.image}`;
         image.alt = `${member.name} business`;
         image.loading = "lazy";
+        image.onerror = () => {
+            image.alt = "Business image unavailable";
+            image.style.display = "none";
+        };
 
         // Business name
         const name = document.createElement("h3");
@@ -68,6 +87,7 @@ function displayMembers(members) {
 
         // Business category
         const category = document.createElement("p");
+        category.className = "member-category";
         category.textContent = member.category;
 
         // Business address
@@ -80,15 +100,18 @@ function displayMembers(members) {
 
         // Membership level
         const level = document.createElement("p");
+        level.className = "membership-level";
+
         const membership = Number(member.membership);
 
         level.textContent =
             membership === 3 ? "Gold Member" :
             membership === 2 ? "Silver Member" :
-            "Member";
+            "Bronze Member";
 
         // Business description
         const description = document.createElement("p");
+        description.className = "member-description";
         description.textContent = member.description;
 
         // Business website
@@ -98,7 +121,7 @@ function displayMembers(members) {
         website.target = "_blank";
         website.rel = "noopener noreferrer";
 
-        // Add elements to card
+        // Add content to card
         card.append(
             image,
             name,
@@ -114,30 +137,65 @@ function displayMembers(members) {
     });
 }
 
-// Mobile navigation
-menuButton.addEventListener("click", () => {
+// ========================================
+// MOBILE NAVIGATION
+// ========================================
+menuButton?.addEventListener("click", () => {
+    navigation?.classList.toggle("show");
 
-    navigation.classList.toggle("show");
-
-    const isOpen = navigation.classList.contains("show");
+    const isOpen = navigation?.classList.contains("show") ?? false;
 
     menuButton.setAttribute("aria-expanded", String(isOpen));
-
     menuButton.setAttribute(
         "aria-label",
         isOpen ? "Close navigation menu" : "Open navigation menu"
     );
+
+    menuButton.textContent = isOpen ? "✕" : "☰";
 });
 
-// Footer copyright year
-document.querySelector("#currentyear").textContent =
-    new Date().getFullYear();
+navigation?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+        navigation.classList.remove("show");
 
-// Footer last modified date
-document.querySelector("#lastmodified").textContent =
-    document.lastModified;
+        if (menuButton) {
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open navigation menu");
+            menuButton.textContent = "☰";
+        }
+    });
+});
 
-// Initialize directory
+// Close mobile navigation with Escape
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navigation?.classList.contains("show")) {
+        navigation.classList.remove("show");
+
+        if (menuButton) {
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open navigation menu");
+            menuButton.textContent = "☰";
+            menuButton.focus();
+        }
+    }
+});
+
+// ========================================
+// FOOTER DATES
+// ========================================
+const currentYear = document.querySelector("#currentyear");
+const lastModified = document.querySelector("#lastmodified");
+
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
+
+if (lastModified) {
+    lastModified.textContent = document.lastModified;
+}
+
+// ========================================
+// INITIALIZE DIRECTORY
+// ========================================
 setView("grid");
 getMembers();
-
