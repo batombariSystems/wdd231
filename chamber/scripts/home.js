@@ -59,7 +59,7 @@ if (lastModified) {
 // ========================================
 
 // Replace this with your newly generated OpenWeatherMap API key.
-const apiKey = "PASTE_YOUR_NEW_API_KEY_HERE";
+const apiKey = "a2cb095b6b024d8f5d2d0715d2116f41";
 
 const city = "Abuja";
 const country = "NG";
