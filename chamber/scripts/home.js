@@ -1,4 +1,3 @@
-
 // ========================================
 // MOBILE NAVIGATION
 // ========================================
@@ -6,19 +5,37 @@
 const menuButton = document.querySelector("#menu-button");
 const navigation = document.querySelector("#navigation");
 
-menuButton.addEventListener("click", () => {
-    const isExpanded =
-        menuButton.getAttribute("aria-expanded") === "true";
+if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+        const isOpen = navigation.classList.toggle("show");
 
-    menuButton.setAttribute("aria-expanded", !isExpanded);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
 
-    menuButton.setAttribute(
-        "aria-label",
-        isExpanded ? "Open navigation menu" : "Close navigation menu"
-    );
+        menuButton.textContent = isOpen ? "✕" : "☰";
+    });
 
-    navigation.classList.toggle("show");
-});
+    navigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            navigation.classList.remove("show");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open navigation menu");
+            menuButton.textContent = "☰";
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            navigation.classList.remove("show");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Open navigation menu");
+            menuButton.textContent = "☰";
+        }
+    });
+}
 
 
 // ========================================
@@ -28,320 +45,287 @@ menuButton.addEventListener("click", () => {
 const currentYear = document.querySelector("#currentyear");
 const lastModified = document.querySelector("#lastmodified");
 
-currentYear.textContent = new Date().getFullYear();
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
 
-lastModified.textContent = document.lastModified;
+if (lastModified) {
+    lastModified.textContent = document.lastModified;
+}
 
 
 // ========================================
-// OPENWEATHERMAP API
+// WEATHER INFORMATION
 // ========================================
 
-// Replace this with your actual OpenWeatherMap API key.
-const apiKey = "YOUR_OPENWEATHERMAP_API_KEY";
+// Replace this with your newly generated OpenWeatherMap API key.
+const apiKey = "PASTE_YOUR_NEW_API_KEY_HERE";
 
 const city = "Abuja";
 const country = "NG";
 
-const currentWeatherURL =
-    `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`;
+const currentWeatherContainer = document.querySelector("#weather-current");
+const forecastContainer = document.querySelector("#weather-forecast");
 
-const forecastURL =
-    `https://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&appid=${apiKey}&units=metric`;
+const weatherBaseURL = "https://api.openweathermap.org/data/2.5";
 
 
-// Get current weather
+// Display current weather
 async function getCurrentWeather() {
+    if (!currentWeatherContainer) return;
 
-    const weatherContainer =
-        document.querySelector("#weather-current");
+    if (!apiKey || apiKey === "PASTE_YOUR_NEW_API_KEY_HERE") {
+        currentWeatherContainer.innerHTML =
+            "<p>Weather information is temporarily unavailable. Please configure the weather API key.</p>";
+        return;
+    }
+
+    const url =
+        `${weatherBaseURL}/weather?q=${city},${country}` +
+        `&units=metric&appid=${apiKey}`;
 
     try {
-
-        const response = await fetch(currentWeatherURL);
+        const response = await fetch(url);
 
         if (!response.ok) {
-            throw new Error("Unable to retrieve current weather.");
+            throw new Error(`Weather request failed: ${response.status}`);
         }
 
         const data = await response.json();
 
         const temperature = Math.round(data.main.temp);
+        const feelsLike = Math.round(data.main.feels_like);
         const description = data.weather[0].description;
-
         const icon = data.weather[0].icon;
+        const iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
-        weatherContainer.innerHTML = `
+        currentWeatherContainer.innerHTML = `
             <div class="current-weather">
-
-                <img
-                    src="https://openweathermap.org/img/wn/${icon}@2x.png"
-                    alt="${description}"
-                    width="80"
-                    height="80">
-
+                <img src="${iconURL}" alt="${description}" width="100" height="100">
                 <div>
-                    <p class="temperature">${temperature}°C</p>
-
-                    <p class="weather-description">
-                        ${description}
-                    </p>
-
-                    <p>Abuja, Nigeria</p>
+                    <h3>${city}, Nigeria</h3>
+                    <p class="temperature">${temperature}&deg;C</p>
+                    <p>${description}</p>
+                    <p>Feels like: ${feelsLike}&deg;C</p>
                 </div>
-
             </div>
         `;
-
     } catch (error) {
-
         console.error("Current weather error:", error);
-
-        weatherContainer.textContent =
-            "Weather information is currently unavailable.";
-
+        currentWeatherContainer.innerHTML =
+            "<p>Unable to load current weather. Please try again later.</p>";
     }
-
 }
 
 
-// Get three-day weather forecast
+// Display a three-day forecast
 async function getWeatherForecast() {
+    if (!forecastContainer) return;
 
-    const forecastContainer =
-        document.querySelector("#weather-forecast");
+    if (!apiKey || apiKey === "PASTE_YOUR_NEW_API_KEY_HERE") {
+        forecastContainer.innerHTML =
+            "<p>Forecast information is temporarily unavailable.</p>";
+        return;
+    }
+
+    const url =
+        `${weatherBaseURL}/forecast?q=${city},${country}` +
+        `&units=metric&appid=${apiKey}`;
 
     try {
-
-        const response = await fetch(forecastURL);
+        const response = await fetch(url);
 
         if (!response.ok) {
-            throw new Error("Unable to retrieve weather forecast.");
+            throw new Error(`Forecast request failed: ${response.status}`);
         }
 
         const data = await response.json();
 
-        // Abuja uses UTC +1.
-        const timezoneOffset = data.city.timezone;
-
-        const dailyForecasts = {};
-
-        data.list.forEach(item => {
-
-            const localDate = new Date(
-                (item.dt + timezoneOffset) * 1000
-            );
-
-            const dateKey = localDate.toISOString().slice(0, 10);
-
-            const hour = localDate.getUTCHours();
-
-            // Select the forecast closest to midday.
-            if (!dailyForecasts[dateKey] ||
-                Math.abs(hour - 12) <
-                Math.abs(dailyForecasts[dateKey].hour - 12)) {
-
-                dailyForecasts[dateKey] = {
-                    item: item,
-                    hour: hour
-                };
-
-            }
-
+        // Use Abuja's local date when grouping forecast entries.
+        const abujaDate = new Intl.DateTimeFormat("en-CA", {
+            timeZone: "Africa/Lagos",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
         });
 
-        // Get the next three calendar days.
-        const today = new Date(
-            Date.now() + timezoneOffset * 1000
-        ).toISOString().slice(0, 10);
+        const today = abujaDate.format(new Date());
+        const dailyForecasts = new Map();
 
-        const forecastDates = Object.keys(dailyForecasts)
-            .filter(date => date > today)
-            .sort()
+        data.list.forEach((item) => {
+            const date = abujaDate.format(new Date(item.dt * 1000));
+
+            // Skip today's forecast and keep one forecast per future day.
+            if (date !== today && !dailyForecasts.has(date)) {
+                dailyForecasts.set(date, item);
+            }
+        });
+
+        const forecastDays = Array.from(dailyForecasts.entries())
             .slice(0, 3);
 
-        if (forecastDates.length < 3) {
-            throw new Error("Three forecast days are not available.");
+        if (forecastDays.length === 0) {
+            throw new Error("No future forecast data was returned.");
         }
 
         forecastContainer.innerHTML = "";
 
-        forecastDates.forEach(date => {
+        forecastDays.forEach(([date, item]) => {
+            const temperature = Math.round(item.main.temp);
+            const description = item.weather[0].description;
+            const icon = item.weather[0].icon;
+            const iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
-            const forecast = dailyForecasts[date].item;
-
-            const temperature =
-                Math.round(forecast.main.temp);
-
-            const description =
-                forecast.weather[0].description;
-
-            const icon = forecast.weather[0].icon;
-
-            const displayDate = new Date(
-                `${date}T12:00:00Z`
-            );
-
-            const dayName = displayDate.toLocaleDateString(
+            const formattedDate = new Date(`${date}T12:00:00`).toLocaleDateString(
                 "en-GB",
                 {
-                    weekday: "long",
-                    timeZone: "UTC"
+                    timeZone: "Africa/Lagos",
+                    weekday: "short",
+                    day: "numeric",
+                    month: "short"
                 }
             );
 
-            const card = document.createElement("div");
-
+            const card = document.createElement("article");
             card.classList.add("forecast-card");
 
             card.innerHTML = `
-                <h4>${dayName}</h4>
-
-                <img
-                    src="https://openweathermap.org/img/wn/${icon}.png"
-                    alt="${description}"
-                    width="50"
-                    height="50">
-
-                <p class="forecast-temperature">
-                    ${temperature}°C
-                </p>
-
+                <h4>${formattedDate}</h4>
+                <img src="${iconURL}" alt="${description}" width="80" height="80">
+                <p class="temperature">${temperature}&deg;C</p>
                 <p>${description}</p>
             `;
 
             forecastContainer.appendChild(card);
-
         });
 
     } catch (error) {
-
         console.error("Forecast error:", error);
-
-        forecastContainer.textContent =
-            "Three-day forecast is currently unavailable.";
-
+        forecastContainer.innerHTML =
+            "<p>Unable to load the three-day forecast. Please try again later.</p>";
     }
-
 }
-
-
-// Load weather information
-getCurrentWeather();
-getWeatherForecast();
 
 
 // ========================================
 // BUSINESS SPOTLIGHTS
 // ========================================
 
-// Assumes members.json is stored in the data folder.
-const membersURL = "data/members.json";
-
 async function getBusinessSpotlights() {
+    const spotlightContainer = document.querySelector("#spotlight-container");
 
-    const spotlightContainer =
-        document.querySelector("#spotlight-container");
+    if (!spotlightContainer) return;
 
     try {
-
-        const response = await fetch(membersURL);
+        const response = await fetch("data/members.json");
 
         if (!response.ok) {
-            throw new Error("Unable to load business members.");
+            throw new Error(`Members data request failed: ${response.status}`);
         }
 
         const members = await response.json();
 
-        // Select only Gold (3) and Silver (2) members.
-        const qualifiedMembers = members.filter(member =>
-            member.membership === 2 ||
-            member.membership === 3
-        );
+        if (!Array.isArray(members)) {
+            throw new Error("The members.json file must contain an array.");
+        }
 
-        // Randomly shuffle the qualified members.
-        const shuffledMembers = qualifiedMembers.sort(
-            () => Math.random() - 0.5
-        );
+        // Membership 2 = Silver; Membership 3 = Gold.
+        const eligibleMembers = members.filter((member) => {
+            const level = Number(member.membership);
+            return level === 2 || level === 3;
+        });
 
-        // Select three members.
-        const selectedMembers =
-            shuffledMembers.slice(0, 3);
+        if (eligibleMembers.length === 0) {
+            spotlightContainer.innerHTML =
+                "<p>No Gold or Silver member businesses are available at the moment.</p>";
+            return;
+        }
+
+        // Shuffle the eligible members.
+        const shuffledMembers = [...eligibleMembers];
+
+        for (let i = shuffledMembers.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledMembers[i], shuffledMembers[j]] =
+                [shuffledMembers[j], shuffledMembers[i]];
+        }
+
+        // Display up to three random businesses.
+        const selectedMembers = shuffledMembers.slice(0, 3);
 
         spotlightContainer.innerHTML = "";
 
-        selectedMembers.forEach(member => {
-
-            const membershipLevel =
-                member.membership === 3 ? "Gold" : "Silver";
-
+        selectedMembers.forEach((member) => {
             const card = document.createElement("article");
-
             card.classList.add("spotlight-card");
 
-            // Create elements safely using textContent.
-            const logo = document.createElement("img");
+            const image = document.createElement("img");
+            image.src = `images/${member.image}`;
+            image.alt = `${member.name} business logo`;
+            image.loading = "lazy";
+            image.width = 180;
+            image.height = 120;
 
-            logo.src = `images/${member.image}`;
-            logo.alt = `${member.name} company logo`;
-            logo.loading = "lazy";
+            image.addEventListener("error", () => {
+                image.alt = `${member.name} image unavailable`;
+                image.hidden = true;
+            });
 
             const name = document.createElement("h3");
             name.textContent = member.name;
 
             const category = document.createElement("p");
-            category.textContent = member.category;
+            category.textContent = member.category || "Business Member";
+
+            const description = document.createElement("p");
+            description.textContent = member.description || "";
 
             const phone = document.createElement("p");
-            phone.textContent = `Phone: ${member.phone}`;
+            phone.textContent = `Phone: ${member.phone || "Not provided"}`;
 
             const address = document.createElement("p");
-            address.textContent = `Address: ${member.address}`;
+            address.textContent = `Address: ${member.address || "Not provided"}`;
 
             const membership = document.createElement("p");
-
-            membership.classList.add("membership-level");
             membership.textContent =
-                `${membershipLevel} Member`;
-
-            const website = document.createElement("a");
-
-            website.href = member.website;
-            website.textContent = "Visit Website";
-            website.target = "_blank";
-            website.rel = "noopener noreferrer";
+                Number(member.membership) === 3
+                    ? "Gold Member"
+                    : "Silver Member";
 
             card.append(
-                logo,
+                image,
                 name,
                 category,
+                description,
                 phone,
                 address,
-                membership,
-                website
+                membership
             );
 
-            spotlightContainer.appendChild(card);
+            if (member.website) {
+                const website = document.createElement("a");
+                website.href = member.website;
+                website.textContent = "Visit Website";
+                website.target = "_blank";
+                website.rel = "noopener noreferrer";
+                card.appendChild(website);
+            }
 
+            spotlightContainer.appendChild(card);
         });
 
-        if (selectedMembers.length === 0) {
-            spotlightContainer.textContent =
-                "No Gold or Silver members are available.";
-        }
-
     } catch (error) {
-
         console.error("Business spotlight error:", error);
-
-        spotlightContainer.textContent =
-            "Business spotlights are currently unavailable.";
-
+        spotlightContainer.innerHTML =
+            "<p>Business spotlights are currently unavailable. Please try again later.</p>";
     }
-
 }
 
 
-// Load business spotlights
+// ========================================
+// RUN HOMEPAGE FUNCTIONS
+// ========================================
+
+getCurrentWeather();
+getWeatherForecast();
 getBusinessSpotlights();
-const apiKey = "a2cb095b6b024d8f5d2d0715d2116f41";

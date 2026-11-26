@@ -1,49 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Metadata -->
-    <meta name="description" content="Explore Abuja businesses, networking opportunities and local events. Connect with entrepreneurs and support economic growth in Nigeria's capital.">
-
+    <meta name="description" content="Discover businesses, events, weather updates and networking opportunities with the Abuja Business Chamber.">
     <meta name="author" content="Batombari Nyienakuna">
+
+    <meta property="og:title" content="Abuja Business Chamber | Home">
+    <meta property="og:description" content="Connect with businesses and discover opportunities in Abuja through the Abuja Business Chamber.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://batombariSystems.github.io/wdd231/chamber/">
+    <meta property="og:image" content="https://batombariSystems.github.io/wdd231/chamber/images/abuja-hero.jpg">
 
     <title>Abuja Business Chamber | Home</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Favicon -->
-    <link rel="icon" href="images/favicon.svg">
-
-    <!-- Stylesheets -->
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
 
-    <!-- Open Graph Social Media Metadata -->
-    <meta property="og:title" content="Abuja Business Chamber | Connect and Grow">
-    <meta property="og:description" content="Discover Abuja businesses, build valuable connections, attend local events and grow your business with our chamber community.">
-    <meta property="og:image" content="https://batombariSystems.github.io/wdd231/chamber/images/abuja-hero.jpg">
-    <meta property="og:url" content="https://batombariSystems.github.io/wdd231/chamber/">
-    <meta property="og:type" content="website">
     <script src="scripts/home.js" defer></script>
 </head>
 
 <body>
-
-    <!-- Header -->
     <header>
         <div class="logo">
             <div class="logo-mark">ABC</div>
             <p>Abuja Business Chamber</p>
         </div>
 
-        <!-- Mobile Navigation Button -->
         <button
             id="menu-button"
             aria-label="Open navigation menu"
@@ -53,124 +39,69 @@
             ☰
         </button>
 
-        <!-- Navigation -->
         <nav id="navigation" aria-label="Main navigation">
-            <a href="index.html" class="active" aria-current="page">
-                Home
-            </a>
+            <a href="index.html" class="active" aria-current="page">Home</a>
             <a href="directory.html">Directory</a>
             <a href="join.html">Join</a>
             <a href="discover.html">Discover</a>
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-
-        <!-- Hero Section -->
         <section class="hero">
             <img
                 src="images/abuja-hero.jpg"
-                alt="Abuja city skyline showcasing the business and commercial environment"
+                alt="Abuja city skyline"
                 fetchpriority="high">
 
             <div class="hero-content">
-                <h1>Growing Businesses, Building Abuja</h1>
-                <p>
-                    Connecting entrepreneurs, supporting local businesses
-                    and creating opportunities for economic growth
-                    in Nigeria's capital city.
-                </p>
-                <a href="join.html" class="hero-button">
-                    Join the Chamber
-                </a>
+                <h1>Welcome to Abuja Business Chamber</h1>
+                <p>Connecting businesses, creating opportunities and promoting economic growth in Abuja.</p>
+                <a href="join.html" class="hero-button">Become a Member</a>
             </div>
         </section>
 
-        <!-- Welcome Section -->
-        <section class="welcome-section">
-            <h2>Welcome to Abuja Business Chamber</h2>
+        <section class="home-section">
+            <h2>Welcome to Our Chamber</h2>
             <p>
-                The Abuja Business Chamber brings businesses together
-                to create opportunities, encourage collaboration and
-                strengthen the local economy. Whether you are an
-                established business owner or an emerging entrepreneur,
-                we provide a platform to connect, learn and grow.
+                The Abuja Business Chamber supports businesses through networking,
+                collaboration, business promotion and access to valuable opportunities.
+                Explore our directory and become part of a growing business community.
             </p>
-            <a href="directory.html" class="text-link">
-                Explore Our Business Directory →
-            </a>
         </section>
 
-        <!-- Events and Weather -->
-        <div class="home-information">
-
-            <!-- Events Section -->
-            <section class="events-section">
-                <h2>Upcoming Events</h2>
-
+        <section class="home-section">
+            <h2>Current Events</h2>
+            <div class="events-container">
                 <article class="event-card">
-                    <div class="event-date">
-                        <span>NOV</span>
-                        <strong>21</strong>
-                    </div>
-
-                    <div class="event-details">
-                        <h3>Business Networking Forum</h3>
-                        <p>
-                            Connect with entrepreneurs and business
-                            leaders across Abuja.
-                        </p>
-                        <p class="event-location">
-                            <strong>Location:</strong> Central Business
-                            District, Abuja
-                        </p>
-                    </div>
+                    <h3>Business Networking</h3>
+                    <p>Connect with business owners and professionals across Abuja.</p>
                 </article>
 
                 <article class="event-card">
-                    <div class="event-date">
-                        <span>DEC</span>
-                        <strong>05</strong>
-                    </div>
-
-                    <div class="event-details">
-                        <h3>SME Growth and Digital Workshop</h3>
-                        <p>
-                            Discover practical strategies for growing
-                            your business through digital technology.
-                        </p>
-                        <p class="event-location">
-                            <strong>Location:</strong> Abuja, FCT
-                        </p>
-                    </div>
+                    <h3>Business Development</h3>
+                    <p>Discover opportunities to develop and grow your business.</p>
                 </article>
-            </section>
+            </div>
+        </section>
 
-            <!-- Weather Section -->
-            <section class="weather-section">
-                <h2>Abuja Weather</h2>
+        <section class="home-section weather-section">
+            <h2>Abuja Weather</h2>
 
-                <div id="weather-current" aria-live="polite">
-                    <p>Loading current weather...</p>
-                </div>
+            <div id="weather-current" aria-live="polite">
+                <p>Loading current weather...</p>
+            </div>
 
-                <h3>3-Day Forecast</h3>
+            <h3>Three-Day Forecast</h3>
 
-                <div id="weather-forecast" aria-live="polite">
-                    <p>Loading forecast...</p>
-                </div>
-            </section>
-        </div>
+            <div id="weather-forecast" aria-live="polite">
+                <p>Loading forecast...</p>
+            </div>
+        </section>
 
-        <!-- Business Spotlights -->
-        <section class="spotlight-section">
+        <section class="home-section">
             <h2>Business Spotlights</h2>
-
-            <p class="spotlight-intro">
-                Meet some of the outstanding businesses that are
-                helping to make Abuja a thriving business community.
-            </p>
+            <p>Meet some of our Gold and Silver membership businesses.</p>
 
             <div
                 id="spotlight-container"
@@ -179,60 +110,28 @@
                 <p>Loading business spotlights...</p>
             </div>
         </section>
-
-        <!-- Join Call to Action -->
-        <section class="join-section">
-            <h2>Be Part of Abuja's Growing Business Community</h2>
-
-            <p>
-                Take your business to the next level. Connect with
-                other businesses, discover opportunities and enjoy
-                the benefits of chamber membership.
-            </p>
-
-            <a href="join.html" class="join-button">
-                Become a Member Today
-            </a>
-        </section>
-        <dialog id="course-details"></dialog>
-
     </main>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-contact">
-            <h2>Abuja Business Chamber</h2>
-            <p>Supporting Business Growth in Abuja, Nigeria</p>
-            <p>Abuja, Federal Capital Territory, Nigeria</p>
+        <div class="footer-content">
+            <div>
+                <h2>Abuja Business Chamber</h2>
+                <p>Promoting business growth and economic development in Abuja.</p>
+                <p>Abuja, Nigeria</p>
+            </div>
 
-            <p>
-                Email:
-                <a href="mailto:batomny@gmail.com">
-                    batomny@gmail.com
-                </a>
-            </p>
-
-            <p>
-                Phone:
-                <a href="tel:+2348068587072">
-                    +234 8068587072
-                </a>
-            </p>
+            <div>
+                <h2>Contact</h2>
+                <p>Email: info@abujachamber.example</p>
+                <p>Phone: +234 800 000 0000</p>
+            </div>
         </div>
 
-        <div class="footer-development">
-            <p>
-                &copy; <span id="currentyear"></span>
-                Abuja Business Chamber
-            </p>
-            <p>Batombari Nyienakuna</p>
-            <p>WDD 231</p>
-            <p>
-                Last Modified:
-                <span id="lastmodified"></span>
-            </p>
-        </div>
+        <p>
+            &copy; <span id="currentyear"></span>
+            Abuja Business Chamber
+        </p>
+        <p>Last Modified: <span id="lastmodified"></span></p>
     </footer>
-
 </body>
 </html>
